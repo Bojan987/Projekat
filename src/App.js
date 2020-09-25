@@ -14,7 +14,7 @@ import { HeroHunt } from './HeroHunt/HeroHunt';
 function App() {
 
   const [newUser, setNewUser] = useState({ username: "", password: "",score:0 });
-  
+  const [isLogged,setIsLogged]= useState(localStorage.getItem('LoggedUser'))
 
   return (
     <div className='App'>
@@ -22,11 +22,11 @@ function App() {
      <Router basename='/Projekat'>
        <Switch>
          <Route exact path='/'>
-            <Login newUser={newUser} setNewUser={setNewUser}/>
+            <Login setIsLogged={setIsLogged} />
             
          </Route>
          <Route  exact path='/user'>
-           {localStorage.getItem('LoggedUser') !==null ? <Home/>: <Redirect to='/'/> }
+           {isLogged !==null ? <Home/>: <Redirect to='/'/> }
          </Route>
          <Route path="/user/:username">
             <Profile/>

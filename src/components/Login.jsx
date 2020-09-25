@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Container from "react-bootstrap/esm/Container";
 
-export const Login = () => {
+export const Login = ({setIsLogged}) => {
   const history = useHistory();
   const [logError, setLogError] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -63,7 +63,9 @@ export const Login = () => {
         // if (logError){
         //     setLogError(null)}
         if (checkUser.length !== 0) {
-          localStorage.setItem("LoggedUser", JSON.stringify(checkUser[0]));
+          localStorage.setItem("LoggedUser", JSON.stringify
+          (checkUser[0]));
+          setIsLogged(true)
           // history.push("/user");
           setTimeout(function(){ history.push("/user"); }, 2000);
         } else {

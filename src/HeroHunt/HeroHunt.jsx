@@ -98,6 +98,7 @@ export const HeroHunt = () => {
               <Col className="Board-title " lg={10}>
                 <div className="heroHunt-title">Wanted! Dead! Not Alive</div>
                 <div className="neon-blue">{time}</div>
+                <p>Wanted heroes are hiding in hero pool.Find them and eliminate them by clicking on them</p>
               </Col>
             </Row>
           <Row className="py-4">

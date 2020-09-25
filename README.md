@@ -1,68 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# Final Project for ITBootcamp
+https://bojan987.github.io/Projekat/
 
-### `npm start`
+​
+### Opis
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 1. Login page
+ 2. Register page
+ 3. Home page
+  - sastoji se od dve sekcije:
+    1. Juggernaut Hunt igrica. Klikom na sliku se odlazi na rutu sa igricom.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    -OPIS:
 
-### `npm test`
+     Igrica je bazirana na igrici Lights Out , gde je cilj da se okrenu sve slicice na stranu bez slike . Klikom se obrce kliknuta slicica i sve slicice oko kliknute. Vreme za koje se obavi zadatak je score koji se belezi i prikazuje na homepage ukoliko je medju najboljih 10.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    2. Hero Hunt igrica.  Klikom na sliku se odlazi na rutu sa igricom.
+    -OPIS:
 
-### `npm run build`
+    Igrica vezba sposobnost zapazanja . Tri heroja su na poternici i potrebno je da se pronadju u bazenu svih heroja, za sto krace vreme. Vreme za koje se obavi zadatak je score koji se belezi i prikazuje na homepage ukoliko je medju najboljih 10.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tehnologije
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. react 16.14.5
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. react-router-dom 16.14.5
 
-### `npm run eject`
+3. redux 16.14.5
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. axios 0.20.0
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Bootstrap 4.7.0
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+6. react-flippy 0.1.5
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+7. font-awesome 4.7.0
+​
 
-## Learn More
+### Struktura foldera:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+​
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. components
 
-### Code Splitting
+     Sve komponente vezane za:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+    -login
+    -registraciju
+    -homepage
+    -navigaciju
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+2. hero-hunt
 
-### Making a Progressive Web App
+  - sve komponente vezane za Hero Hunt igricu
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+3. JuggernautHunt
 
-### Advanced Configuration
+  -sve komponente vezane za Juggernaut Hunt igricu
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+4. services
 
-### Deployment
+    - Pomocne funkcije i komunikacija sa serverom
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+​
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Instalacija (Front-End)
+
+​
+
+Prethodno potrebna instalacija NodeJS (v12.14.0 ili novija)
+
+
+
+    1. Klonirati repozitorijum
+
+    2. npm install
+
+​
+`
+
+​
+
+### Pokretanje projekta
+
+
+
+    1. ```npm start```
+
+        -Pokrece React
+
+​
