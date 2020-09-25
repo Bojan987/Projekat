@@ -1,0 +1,220 @@
+
+.App {
+  text-align: start;
+  max-height: 100vh;
+}
+.loginText{
+  color: white;
+}
+.linkovi{
+  color: aliceblue;
+}
+.linkovi:hover{
+  color: aliceblue;
+}
+/* .LoginRow{
+flex-wrap: nowrap !important;
+} */
+.navigation{
+  opacity: 0.8;
+}
+#home-section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+#home-section .home-inner {
+  padding-top: 150px;
+}
+#home-section .card-form {
+  opacity: 0.8;
+}
+#home-section .fas{
+  color: #008ed6;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#HeroHunt{
+  background-color:#333;
+  min-height: 47,2vh;
+}
+#JuggHunt{
+  min-height: 47,2vh;
+}
+
+.register {
+  padding: 1rem;
+}
+
+input.placeholderRed::placeholder {
+  color: #ff0000;
+  opacity: 1;
+}
+.card-form{
+  color: white;
+}
+
+.LogOut{
+  margin-right: 20px;
+}
+
+
+.heroImg{
+  
+  height: 50px;
+  width: 50px;
+}
+.heroImg:hover{
+  cursor: pointer;
+}
+
+.HeroHunt-container{
+  margin-top: 50px;
+}
+
+.flipImage{
+
+ width: 100%;
+ height: 100%;
+}
+
+.Board-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.neon-orange {
+  font-family: neon;
+  color: #d4e7f7;
+  margin-left: 30px;
+  font-size: 80px;
+  text-shadow: 0 0 3vw #f40a35;
+  /* animation: neon-orange 1s ease infinite;
+  -moz-animation: neon-orange 1s ease infinite;
+  -webkit-animation: neon-orange 1s ease infinite; */ 
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.neon-blue {
+  font-family: neon;
+  color: #426dfb;
+  font-size: 80px;
+  text-shadow: 0 0 3vw #2356ff;
+  margin-left: 30px;
+ 
+}
+
+.winner .neon-blue,
+.winner .neon-orange {
+  font-size: 80px;
+
+}
+
+.winner{
+  justify-self: center;
+   animation: winner 2s linear infinite;
+  -moz-animation: winner 2s linear infinite;
+  -webkit-animation: winner 2s linear infinite;
+  -o-animation: winner 2s linear infinite;
+}
+@keyframes winner {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #fa1c16, 0 0 2vw #fa1c16, 0 0 10vw #fa1c16,
+      0 0 10vw #fa1c16, 0 0 0.4vw #fed128, 0.2vw 0.2vw 0.1vw #806914;
+    color: #fed128;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #800e0b,
+      0 0 5vw #800e0b, 0 0 0.2vw #800e0b, 0.3vw 0.3vw 0.1vw #40340a;
+    color: #806914;
+  }
+}
+
+@keyframes winner {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041ff, 0 0 3vw #1041ff, 0 0 10vw #1041ff,
+      0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe, 0.3vw 0.3vw 0.1vw #147280;
+    color: #28d7fe;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180,
+      0 0 5vw #082180, 0 0 0.2vw #082180, 0.3vw 0.3vw 0.1vw #0a3940;
+    color: #146c80;
+  }
+}
+
+/* .Table {
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0 red;
+  box-shadow: 0 0 50px #fff, -10px 0 80px rgb(211, 55, 16), 10px 0 80px rgb(192, 180, 4);
+} */
+.Table{
+  opacity: 0.8;
+
+  margin: 0 auto;
+}
+
+.juggernaut-section,
+.win-section,
+.register-section{
+  height: 100vh;
+}
+.jugg-description{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+.register-section{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  
+}
+.card-form{
+  opacity: 0.8;
+}
+
+.wanted{
+  margin-top: -50px;
+}
+.wanted-card:hover{
+    background-color: #3292a6;
+    color: #fff; 
+}
+.wanted-card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heroHunt-title{
+  
+  color: #1b6db1;
+  margin-left: 30px;
+  font-size: 80px;
+  text-shadow: 0 0 3vw #ec173e;
+}
+.profile-wrapp{
+  margin-top: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
