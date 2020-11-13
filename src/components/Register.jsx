@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import { postUser } from "../services";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Col from "react-bootstrap/esm/Col";
@@ -15,7 +14,7 @@ export const Register = ({ newUser, setNewUser }) => {
 
   const handleNewUser = (e) => {
     const { name, value } = e.target;
-    // console.log(name, value);
+    
     setNewUser((prevUser) => {
       return {
         ...prevUser,
@@ -46,7 +45,7 @@ export const Register = ({ newUser, setNewUser }) => {
     if (newUser.username !== "" && newUser.password !== "") {
       postUser(newUser)
         .then((res) => {
-          // console.log(res);
+          
 
           if (errorMsg) {
             setErrorMsg(null);

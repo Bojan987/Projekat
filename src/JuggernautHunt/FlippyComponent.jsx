@@ -13,7 +13,7 @@ export const Flippycomponent = ({toggleJuggKill,isDead})=>{
     return <Flippy
     isFlipped={isDead}
     flipDirection="vertical"
-    // style={{ width: '100px', height:'100px' ,margin:'0.1rem' }}
+    
     className='flippyComponent'
   >
     <FrontSide
@@ -27,9 +27,6 @@ export const Flippycomponent = ({toggleJuggKill,isDead})=>{
     <BackSide
       style={{
         backgroundColor: "#076986",
-        // lineHeight: "10px",
-        // paddingLeft: "25px",
-    
         borderRadius: "10px"
       }}
       onClick={handleClick}

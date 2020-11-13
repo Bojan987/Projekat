@@ -9,14 +9,9 @@ import HeroHunt from '../images/HeroHunt.jpg'
 import { TopScoresHero } from "../HeroHunt/TopScoresHero";
 import {Navigation} from './Navigation.jsx'
 export const Home = () => {
-  // const [user, setUser] = useState(userData);
-
-  // let logedPlayer = localStorage.getItem("LoggedUser")
-  //   ? JSON.parse(localStorage.getItem("LoggedUser"))
-  //   : null;
 
   let logedPlayer = JSON.parse(localStorage.getItem("LoggedUser"));
-  // console.log(logedPlayer);
+  
   return (
     <div>
      

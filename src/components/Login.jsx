@@ -54,19 +54,18 @@ export const Login = ({setIsLogged}) => {
       loading() 
     loginUser()
       .then((res) => {
-        // console.log(res);
+        
         let checkUser = res.data.filter(
           (e) =>
             e.username === userLoggingIn.username &&
             e.password === userLoggingIn.password
         );
-        // if (logError){
-        //     setLogError(null)}
+        
         if (checkUser.length !== 0) {
           localStorage.setItem("LoggedUser", JSON.stringify
           (checkUser[0]));
           setIsLogged(true)
-          // history.push("/user");
+          
           setTimeout(function(){ history.push("/user"); }, 2000);
         } else {
           setLogError("Wrong Username or Password");

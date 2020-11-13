@@ -13,7 +13,7 @@ export const Profile = () => {
   const id = useParams().username;
   const history = useHistory()
   let loggedUser = JSON.parse(localStorage.getItem("LoggedUser"));
-  // console.log(id);
+ 
 
   return (
     <>
@@ -44,7 +44,7 @@ export const Profile = () => {
         </div>
         </div>
       ) : (
-        <p>Корисник са ID: {id} не постоји</p>
+        <p>User With ID: {id} does not exists</p>
       )}
     </>
   );

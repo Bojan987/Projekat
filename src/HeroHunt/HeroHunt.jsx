@@ -34,12 +34,11 @@ export const HeroHunt = () => {
     return newArr;
   };
 
-  // const shuffle=(array)=>array.sort(() => Math.random() - 0.5);
+  
 
   useEffect(() => {
     getDotainfos().then((res) => {
-      // console.log(res.data);
-      // setHeroes(res.data.map((el) => el.img));
+      
       setHeroes(getShuffledArr(res.data));
 
       setBounty(getShuffledArr(res.data).slice(0, 3));
@@ -47,25 +46,24 @@ export const HeroHunt = () => {
     });
 
   }, []);
-  //dodaj ovde refresh u dependeces
+  
 
  
 
   useEffect(() => {
     setInt(
       setInterval(() => {
-        // console.log(time)
+        
         setTime((time) => {
           return time + 1;
         });
-        // console.log("izvrsilo se ");
+        
       }, 1000)
     );
 
-    // getScoresHeroHunt().then(res=>{
-    //   console.log(res)
-    // })
+    
     return () => clearInterval(int);
+    // eslint-disable-next-line 
   }, []);
 
   useEffect(() => {
@@ -79,6 +77,7 @@ export const HeroHunt = () => {
       });
       clearInterval(int);
     }
+    // eslint-disable-next-line 
   }, [isWin]);
 
   useEffect(() => {
@@ -91,17 +90,19 @@ export const HeroHunt = () => {
      if(bounty.some((el)=>e.target.id === el.img)){
        
        setHeroEliminated('heroShow')
+       let index = bounty.findIndex((el) => e.target.id === el.img);
+    
+       if (bounty.filter((el, idx) => idx !== index).length === 0) setIsWin(true);
+       if (index >= 0) {
+         setBounty((prev) => prev.filter((el, idx) => idx !== index));
+       }
        setTimeout(() => {
          setHeroEliminated('heroEliminated')
        }, 1000);
+       return ()=>clearTimeout(heroEliminated)
      }
 
-    let index = bounty.findIndex((el) => e.target.id === el.img);
-    // console.log(index);
-    if (bounty.filter((el, idx) => idx !== index).length === 0) setIsWin(true);
-    if (index >= 0) {
-      setBounty((prev) => prev.filter((el, idx) => idx !== index));
-    }
+  
   };
     
   return (
@@ -162,6 +163,9 @@ export const HeroHunt = () => {
                    </div>
                  ))}
               </Card.Body>
+              <Card.Footer>
+                 <Button variant="info" block onClick={()=>history.push("/user")}>Give Up</Button>
+              </Card.Footer>
             </Card>
             <p  className={heroEliminated} >Hero eliminated</p>
           </Row>

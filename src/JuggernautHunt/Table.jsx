@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
-import { getScores, postScores } from "../services";
-import { topResults } from "../utilities";
+import { postScores } from "../services";
 import { SingleField } from "./SingleField";
 import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
@@ -36,19 +35,22 @@ export const Table = ({ nrows, ncols, chanceJuggOnStart }) => {
   useEffect(() => {
     setInt(
       setInterval(() => {
-        // console.log(time)
+        
         setTime((time) => {
+           
           return time + 1;
         });
         
       }, 1000)
     );
-
+      
     return () => clearInterval(int);
+    // eslint-disable-next-line 
   }, []);
-
+  
   useEffect(() => {
     if (hasWon) {
+      
       setScore((prev) => {
         return {
           ...prev,
@@ -56,8 +58,10 @@ export const Table = ({ nrows, ncols, chanceJuggOnStart }) => {
           username: JSON.parse(localStorage.getItem("LoggedUser")).username,
         };
       });
+
       clearInterval(int);
     }
+    // eslint-disable-next-line 
   }, [hasWon]);
 
   useEffect(() => {
