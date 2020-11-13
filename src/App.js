@@ -20,7 +20,7 @@ function App() {
   return (
     <div className='App'>
       
-     <Router basename='/Projekat'>
+     <Router >
        <Switch>
          <Route exact path='/'>
             <Login setIsLogged={setIsLogged} />
