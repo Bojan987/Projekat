@@ -14,6 +14,7 @@ import { HeroHunt } from './HeroHunt/HeroHunt';
 function App() {
 
   const [newUser, setNewUser] = useState({ username: "", password: "",score:0 });
+  // eslint-disable-next-line 
   const [isLogged,setIsLogged]= useState(localStorage.getItem('LoggedUser'))
 
   return (
