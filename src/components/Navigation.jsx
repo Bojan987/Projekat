@@ -22,7 +22,7 @@ export const Navigation = ({ loggedPlayer }) => {
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse animation='false' className="justify-content-end ">
+        <Navbar.Collapse animation='false' className="justify-content-end navBarColapse">
           <NavDropdown title="games" id="collasible-nav-dropdown" className='linkovi'>
             
               <Link to='/JuggernautHunt' className='collapseNav'>

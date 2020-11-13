@@ -287,7 +287,10 @@ td{
 }
 .collapseNav{
   display: block;
-  margin-left: 10px;
+  margin-left: 10pxs;
+}
+.navBarColapse{
+  display: flex;
 }
 @media only screen and (max-width: 600px){
   .heroShow{
