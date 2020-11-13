@@ -114,7 +114,7 @@ export const Login = ({setIsLogged}) => {
                 <FontAwesomeIcon icon={ faCheck } className='fas 'size='3x'/>
                 </div>
                 <div className='p-4 align-self-center loginText'>
-                Time is your score, so solve th eproblem fast. Top 10 score is shown at homepage.
+                Time is your score, so solve the problem fast. Top 10 score is shown at homepage.
                 </div>
               </div>
             </Col>

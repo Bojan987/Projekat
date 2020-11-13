@@ -96,10 +96,10 @@ export const HeroHunt = () => {
        if (index >= 0) {
          setBounty((prev) => prev.filter((el, idx) => idx !== index));
        }
-       setTimeout(() => {
+       let x = setTimeout(() => {
          setHeroEliminated('heroEliminated')
        }, 1000);
-       return ()=>clearTimeout(heroEliminated)
+       return ()=>clearTimeout(x)
      }
 
   
