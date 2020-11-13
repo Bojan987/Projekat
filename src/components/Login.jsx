@@ -34,7 +34,7 @@ export const Login = ({setIsLogged}) => {
   };
   
   function simulateNetworkRequest() {
-    return new Promise((resolve) => setTimeout(resolve, 2500));
+    return new Promise((resolve) => setTimeout(resolve, 3000));
   }
  
 
@@ -89,24 +89,24 @@ export const Login = ({setIsLogged}) => {
           <Container className='home-inner'>
           <Row className='LoginRow'>
             <Col lg={7} className='d-none d-lg-block'>
-              <h1 className='display-3 loginText'>Lorem ipsum dolor sit.
-              <strong>Lorem, ipsum.</strong>
+              <h1 className='display-3 loginText'>Join, play and
+              <strong>  compete  </strong> with others
               </h1>
               <div className='d-flex'>
                 <div className='p-4 align-self-start'>
                 <FontAwesomeIcon icon={ faCheck } className='fas'size='3x'/>
                 </div>
-                <div className='p-4 align-self-end  loginText'>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, non expedita praesentium possimus repudiandae totam!
+                <div className='p-4 align-self-center  justify-self-center loginText'>
+                  Login or Register to play puzzle and observation game. 
                 </div>
               </div>
 
               <div className='d-flex'>
-                <div className='p-4 align-self-start loginText'>
+                <div className='p-4 align-self-start '>
                 <FontAwesomeIcon icon={ faCheck } className='fas'size='3x'/>
                 </div>
-                <div className='p-4 align-self-end loginText'>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, non expedita praesentium possimus repudiandae totam!
+                <div className='p-4 align-self-center loginText display-5'>
+                Compete with others and yourself.
                 </div>
               </div>
 
@@ -114,8 +114,8 @@ export const Login = ({setIsLogged}) => {
                 <div className='p-4 align-self-start'>
                 <FontAwesomeIcon icon={ faCheck } className='fas 'size='3x'/>
                 </div>
-                <div className='p-4 align-self-end loginText'>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, non expedita praesentium possimus repudiandae totam!
+                <div className='p-4 align-self-center loginText'>
+                Time is your score, so solve th eproblem fast. Top 10 score is shown at homepage.
                 </div>
               </div>
             </Col>

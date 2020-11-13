@@ -5,10 +5,13 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/esm/Card";
+import Button from "react-bootstrap/Button"
 import { Navigation } from "../components/Navigation";
+import { useHistory } from "react-router-dom";
+
 export const HeroHunt = () => {
   const [heroes, setHeroes] = useState([]);
-  const [bounty, setBouty] = useState([]);
+  const [bounty, setBounty] = useState([]);
   // const [refresh, setRefresh] = useState(false);
   const [isWin, setIsWin] = useState(false);
   const [int, setInt] = useState();
@@ -17,6 +20,10 @@ export const HeroHunt = () => {
     username: "",
     heroHuntScore: 0,
   });
+  const [heroEliminated,setHeroEliminated] = useState('heroEliminated')
+  const history = useHistory()
+  const wantedArray = ['Stealing a cookie from Roshan. ','Letting the dogs out.','Unicorn poaching']
+  
 
   const getShuffledArr = (arr) => {
     const newArr = arr.slice();
@@ -35,10 +42,14 @@ export const HeroHunt = () => {
       // setHeroes(res.data.map((el) => el.img));
       setHeroes(getShuffledArr(res.data));
 
-      setBouty(getShuffledArr(res.data).slice(0, 3));
+      setBounty(getShuffledArr(res.data).slice(0, 3));
+   
     });
+
   }, []);
   //dodaj ovde refresh u dependeces
+
+ 
 
   useEffect(() => {
     setInt(
@@ -75,18 +86,24 @@ export const HeroHunt = () => {
   }, [scoreHunt]);
 
   const pickAhero = (e) => {
-    console.log(e.target.id);
+    
 
-    //  if(condition.some((el)=>e.target.id === el.id))
+     if(bounty.some((el)=>e.target.id === el.img)){
+       
+       setHeroEliminated('heroShow')
+       setTimeout(() => {
+         setHeroEliminated('heroEliminated')
+       }, 1000);
+     }
 
     let index = bounty.findIndex((el) => e.target.id === el.img);
     // console.log(index);
     if (bounty.filter((el, idx) => idx !== index).length === 0) setIsWin(true);
     if (index >= 0) {
-      setBouty((prev) => prev.filter((el, idx) => idx !== index));
+      setBounty((prev) => prev.filter((el, idx) => idx !== index));
     }
   };
-
+    
   return (
     <div>
       <Navigation
@@ -95,30 +112,31 @@ export const HeroHunt = () => {
       {!isWin ? (
         <Container className="HeroHunt-container">
           <Row >
-              <Col className="Board-title " lg={10}>
+              <Col className="Board-title " >
                 <div className="heroHunt-title">Wanted! Dead! Not Alive</div>
                 <div className="neon-blue">{time}</div>
-                <p>Wanted heroes are hiding in hero pool.Find them and eliminate them by clicking on them</p>
+                <p className='descriptionHunt'>Wanted heroes are hiding in hero pool. Find all three wanted heroes in hero pool and click on each to eliminate them.Once you eliminate all 3 u win.</p>
+                <hr/>
               </Col>
             </Row>
           <Row className="py-4">
             
-            {bounty.map((el) => (
+            {bounty.map((el,idx) => (
                 <Col lg={4} key={el.img}>
                 <Card className='wanted-card'>
                   <Card.Body className='wanted-card-content'>
-                  <Image
-                key={el.img}
-                id={el.img}
-                fluid
-                className=" w-50 mb-3 wanted"
-                src={`https://api.opendota.com${el.img}`}
-                roundedCircle
-                
-              />
-              <h3>{el.localized_name}</h3>
-              <h5 className='text-muted'>Wanted!</h5>
-              <p>Wanted for -napraviti neki array sa tekstovima</p>
+                      <Image
+                      key={el.img}
+                      id={el.img}
+                      fluid
+                      className=" w-50 mb-3 wanted"
+                      src={`https://api.opendota.com${el.img}`}
+                      roundedCircle
+                      
+                      />
+                      <h3>{el.localized_name}</h3>
+                      <h5 className='text-danger'>Wanted!</h5>
+                      <p>Wanted for: {wantedArray[idx]}</p>
              
                   </Card.Body>
                 </Card>
@@ -127,57 +145,45 @@ export const HeroHunt = () => {
               
             ))}
           </Row>
-          <Row>
-            {heroes.map((el) => (
-              <Image
-                key={el.img}
-                id={el.img}
-                className="heroImg"
-                src={`https://api.opendota.com${el.img}`}
-                roundedCircle
-                onClick={pickAhero}
-              />
-            ))}
+          <Row className='heroHuntPool'>
+            <Card >
+              <Card.Body className='heroPoolCard'>
+                  {heroes.map((el) => (
+                  <div key={el.img} className='poolWrap'>
+                  <Image
+                  key={el.img}
+                  id={el.img}
+                  className="heroImg"
+                  src={`https://api.opendota.com${el.img}`}
+                  roundedCircle
+                  onClick={pickAhero}
+                  />
+                  
+                   </div>
+                 ))}
+              </Card.Body>
+            </Card>
+            <p  className={heroEliminated} >Hero eliminated</p>
           </Row>
         </Container>
       ) : (
-        <Container className="d-flex justify-content-center win-section">
-          
-            
+        <Container className="d-flex justify-content-center align-items-center win-section">
+            <Row>
               <span className="winner neon-blue">YOU</span>
               <span className="winner neon-blue">WIN!</span>
+            </Row>
+            <Row>
+              <span className="winner neon-blue">Score : {time} sec</span>
               
-          </Container>
+            </Row>
+              <Row>
+              <Button variant="info" block onClick={()=>history.push("/user")}>Back to Home</Button>
+              
+              </Row>
+             
+        </Container>
       )}
     </div>
   );
 };
 
-{/* <div class="col-lg-3 col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <img src="img/person1.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-              <h3>Susan Williams</h3>
-              <h5 class="text-muted">Lead Writer</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed commodi nostrum, ab libero voluptas officia.</p>
-              <div class="d-flex justify-content-center">
-                <div class="p-4">
-                  <a href="http://facebook.com">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                </div>
-                <div class="p-4">
-                  <a href="http://twitter.com">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </div>
-                <div class="p-4">
-                  <a href="http://instagram.com">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div> */}

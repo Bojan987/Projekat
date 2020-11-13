@@ -5,14 +5,16 @@ import Row from "react-bootstrap/esm/Row";
 import { getScores, postScores } from "../services";
 import { topResults } from "../utilities";
 import { SingleField } from "./SingleField";
-
-import background from "../images/morph.jpg";
+import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import { Navigation } from "../components/Navigation";
 import Button from "react-bootstrap/esm/Button";
-import { Link } from "react-router-dom";
+import '../App.css'
+import Card from "react-bootstrap/esm/Card";
 
 export const Table = ({ nrows, ncols, chanceJuggOnStart }) => {
+
+  const history=useHistory()
   const createTable = () => {
     let board = [];
     for (let y = 0; y < nrows; y++) {
@@ -38,7 +40,7 @@ export const Table = ({ nrows, ncols, chanceJuggOnStart }) => {
         setTime((time) => {
           return time + 1;
         });
-        console.log("izvrsilo se ");
+        
       }, 1000)
     );
 
@@ -64,12 +66,12 @@ export const Table = ({ nrows, ncols, chanceJuggOnStart }) => {
 
   const toggleJuggKill = (coord) => {
     let board = [...initTable];
-    // console.log(board)
+    
     let splitted = coord.split("-");
     let [x, y] = splitted.map((item) => parseInt(item));
 
     function toggleJugg(x, y) {
-      // console.log(y, x);
+      
       if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
         board[y][x] = !board[y][x];
       }
@@ -80,7 +82,7 @@ export const Table = ({ nrows, ncols, chanceJuggOnStart }) => {
     toggleJugg(y - 1, x); //flip below
     toggleJugg(y + 1, x); //flip above
     let isWin = board.every((row) => row.every((cell) => !cell));
-    //   setInit({hasWon:hasWon,board:board})
+    
     setHasWon(isWin);
     setInitTable(board);
   };
@@ -116,36 +118,58 @@ export const Table = ({ nrows, ncols, chanceJuggOnStart }) => {
       <Container
         fluid
         style={{
-          backgroundImage: `url(${background})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          
           paddingTop:'15px'
         }}
       >
         {hasWon ? (
-          <Container className="d-flex justify-content-center win-section">
-          
-            
+            <Container className="d-flex justify-content-center align-items-center win-section">
+            <Row >
               <span className="winner neon-blue">YOU</span>
               <span className="winner neon-blue">WIN!</span>
+            </Row>
+            <Row>
+              <span className="winner neon-blue">Score : {time} sec</span>
               
-          </Container>
+            </Row>
+              <Row>
+              <Button className='winnerButton' variant="info" block onClick={()=>history.push("/user")}>Back to Home</Button>
+              
+              </Row>
+             
+        </Container>
         ) : (
           <Container  className="juggernaut-section">
-            <Row >
-              <Col className="Board-title " lg={10}>
+            <Row className="Board-title">
+              
                 <div className="neon-orange">Hunt the Juggernaut</div>
-                <div className="neon-blue">{time}</div>
-              </Col>
-            </Row>
+                <div className="neon-orange">Score: {time}</div>
+              </Row>
             <Row className='tableRow  d-flex '>
-            <Col lg={5}  >
+            <Col lg={4} md={5} xs={12}  >
                 <div className = 'jugg-description align-self-center'>
-
+                  <Card className='bg-dark text-white mb-4'>
+                      <Card.Title className='d-flex justify-content-center pt-4'>
+                        <h3>Game Description</h3>
+                      </Card.Title>
+                      <Card.Body>
+                        <p>Each time you click on the field, it flips itself and all fields around itself.</p>
+                        <p><strong>Goal</strong> is to flip all the pieces to non-image side. In other words, kill all the illusions Jugernaut produce.</p>
+                        <p><strong>Score</strong> is the time it takes to finish the goal.<strong>Hurry up!</strong></p>
+                      </Card.Body>
+                  </Card>
                 </div>
                 </Col>
-              <Col lg={5}>
-                {makeTable()}
+              <Col lg={8} md={7} xs={12} className='tableWrapper'>
+                <Card className='tableCard bg-dark ' >
+                  <Card.Body className='TableBody'>
+                      {makeTable()}
+                  </Card.Body>
+                  <Card.Footer>
+                      <Button variant="info" block onClick={()=>history.push("/user")}>Give up</Button>
+                  </Card.Footer>
+                </Card>
+                
               </Col>
               
             </Row>

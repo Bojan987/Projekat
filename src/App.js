@@ -26,7 +26,8 @@ function App() {
             
          </Route>
          <Route  exact path='/user'>
-           {isLogged !==null ? <Home/>: <Redirect to='/'/> }
+           {/* {isLogged !==null ? <Home/>: <Redirect to='/'/> } */}
+           <Home/>
          </Route>
          <Route path="/user/:username">
             <Profile/>

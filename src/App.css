@@ -5,6 +5,7 @@
 }
 .loginText{
   color: white;
+  font-size: 18px;
 }
 .linkovi{
   color: aliceblue;
@@ -12,9 +13,7 @@
 .linkovi:hover{
   color: aliceblue;
 }
-/* .LoginRow{
-flex-wrap: nowrap !important;
-} */
+
 .navigation{
   opacity: 0.8;
 }
@@ -52,7 +51,10 @@ flex-wrap: nowrap !important;
 #JuggHunt{
   min-height: 47,2vh;
 }
-
+.juggHuntImage:hover,
+.heroHuntImage:hover{
+  opacity: 0.6;
+}
 .register {
   padding: 1rem;
 }
@@ -71,60 +73,89 @@ input.placeholderRed::placeholder {
 
 
 .heroImg{
-  
+  margin-bottom: 5px;
   height: 50px;
   width: 50px;
+  border-radius: 10px 0px 0px 10px;
+  border: 1px solid #15008b;
+}
+.heroEliminated{
+  display: none;
+}
+.heroShow{
+  color: rgb(255, 0, 55);
+  z-index: 2;
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  border: 4px solid #bb1717;
+  border-radius: 10px 0px 0px 10px;
+  transform: translate(-50%,-50%) rotate(-45deg) ;
+  font-size: 2rem;
+}
+
+.heroPoolCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 .heroImg:hover{
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .HeroHunt-container{
   margin-top: 50px;
 }
-
-.flipImage{
-
- width: 100%;
- height: 100%;
+.descriptionHunt{
+  font-size: 1.3rem;
 }
+.heroHunt-title{
+  
+  color: #1b6db1;
+  margin-left: 30px;
+  font-size: 3rem;
+  font-weight: 600;
+  text-shadow: 0 0 1vw #881126;
+}
+.heroHuntPool{
+  margin-bottom: 6rem;
+}
+
 
 .Board-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+
 }
 
 .neon-orange {
   font-family: neon;
-  color: #d4e7f7;
-  margin-left: 30px;
-  font-size: 80px;
+  color: #272829;
+  font-size: 2rem;
   text-shadow: 0 0 3vw #f40a35;
   /* animation: neon-orange 1s ease infinite;
   -moz-animation: neon-orange 1s ease infinite;
   -webkit-animation: neon-orange 1s ease infinite; */ 
-  background: rgba(0, 0, 0, 0.7);
+  
 }
 
 .neon-blue {
   font-family: neon;
   color: #426dfb;
-  font-size: 80px;
-  text-shadow: 0 0 3vw #2356ff;
+  font-size: 3rem;
+  /* text-shadow: 0 0 6vw #2356ff; */
   margin-left: 30px;
  
 }
 
-.winner .neon-blue,
-.winner .neon-orange {
-  font-size: 80px;
 
-}
 
 .winner{
-  justify-self: center;
+  font-size: 5rem;
    animation: winner 2s linear infinite;
   -moz-animation: winner 2s linear infinite;
   -webkit-animation: winner 2s linear infinite;
@@ -133,7 +164,7 @@ input.placeholderRed::placeholder {
 @keyframes winner {
   0%,
   100% {
-    text-shadow: 0 0 1vw #fa1c16, 0 0 2vw #fa1c16, 0 0 10vw #fa1c16,
+    text-shadow: 0 0 0.5vw #fa1c16, 0 0 0.7vw #fa1c16, 0 0 1vw #fa1c16,
       0 0 10vw #fa1c16, 0 0 0.4vw #fed128, 0.2vw 0.2vw 0.1vw #806914;
     color: #fed128;
   }
@@ -147,27 +178,61 @@ input.placeholderRed::placeholder {
 @keyframes winner {
   0%,
   100% {
-    text-shadow: 0 0 1vw #1041ff, 0 0 3vw #1041ff, 0 0 10vw #1041ff,
-      0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe, 0.3vw 0.3vw 0.1vw #147280;
+    text-shadow: 0 0  #1041ff, 0 0  #1041ff, 0 0 2vw #1041ff,
+      0 0 #1041ff, 0 0  #8bfdfe;
     color: #28d7fe;
   }
   50% {
-    text-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180,
-      0 0 5vw #082180, 0 0 0.2vw #082180, 0.3vw 0.3vw 0.1vw #0a3940;
+    text-shadow: 0 0  #082180, 0 0  #082180, 0 0  #082180,
+      0 0 0.2vw #082180, 0 0 2.7vw #082180, ;
     color: #146c80;
   }
 }
 
-/* .Table {
-  margin: 0 auto;
-  border-radius: 10px;
-  box-shadow: 10px 10px 0 red;
-  box-shadow: 0 0 50px #fff, -10px 0 80px rgb(211, 55, 16), 10px 0 80px rgb(192, 180, 4);
-} */
+.tableRow{
+  margin-top: 3rem;
+  height: 30rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;  
+  margin-bottom: 4rem;
+}
 .Table{
-  opacity: 0.8;
-
-  margin: 0 auto;
+  opacity: 0.9;
+ 
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  
+}
+tbody{
+ display: flex;
+ min-width: 100%;
+ min-height: 100%;
+ flex-direction: column;
+  
+}
+tr{
+  display: flex;
+  flex: 1 1 0;
+}
+td{
+  display: flex;
+  flex: 1 1 0;
+}
+.tableWrapper{
+  height: 22rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+ 
+}
+.tableCard{
+  flex:1 1 0;
+  
+}
+.TableBody{
+  padding: 0 !important;
 }
 
 .juggernaut-section,
@@ -175,13 +240,13 @@ input.placeholderRed::placeholder {
 .register-section{
   height: 100vh;
 }
+.win-section{
+  flex-direction: column;
+}
 .jugg-description{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 50vh;
-  background: rgba(0, 0, 0, 0.7);
+  opacity: 0.9;
+  background-color: rgba(0, 0, 0, 0.7);
+
 }
 .register-section{
   background-repeat: no-repeat;
@@ -205,16 +270,34 @@ input.placeholderRed::placeholder {
   flex-direction: column;
   align-items: center;
 }
-.heroHunt-title{
-  
-  color: #1b6db1;
-  margin-left: 30px;
-  font-size: 80px;
-  text-shadow: 0 0 3vw #ec173e;
-}
 .profile-wrapp{
   margin-top: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 600px){
+  .heroShow{
+    color: rgb(255, 0, 55);
+    font-weight: 400;
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 3px solid #da0808;
+    border-radius: 10px 10px 10px 10px;
+    transform: translate(-50%,-50%) rotate(-45deg) ;
+    font-size: 2rem;
+  }
+  .tableRow{
+    height: 22rem;
+  }
+
+  .winner{
+    font-size: 2rem;
+  }
+  .winnerButton{
+    margin-top: 3rem;
+  }
 }

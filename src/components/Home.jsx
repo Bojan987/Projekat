@@ -30,7 +30,7 @@ export const Home = () => {
               <Image
                 src="https://gamestorage-9cd1.restdb.io/media/5f6939f4db00907500005fe2"
                 roundedCircle
-                className=" img-fluid  mb-3 "
+                className=" img-fluid  mb-3 juggHuntImage"
               />
             </Link>
          </Col>
@@ -54,7 +54,7 @@ export const Home = () => {
               <Image
                 src={HeroHunt}
                 roundedCircle
-                className=" img-fluid  mb-3 "
+                className=" img-fluid  mb-3 heroHuntImage"
               />
             </Link>
          </Col>

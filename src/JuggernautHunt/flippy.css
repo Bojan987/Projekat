@@ -1,0 +1,31 @@
+.flippycomponent{
+    width: 100%;
+    height: 100%;
+}
+
+.flipImage{
+    width: 70%;
+    height: 100%;
+   }
+.flippy-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flippy-container{
+    display: flex;
+    flex: 1 1 0;
+}
+.flippy-cardContainer-wrapper{
+    flex: 1 1 0;
+}
+
+@media only screen and (max-width: 600px){
+    .flippy-back{
+        padding: 0;
+      }
+      .flippy-front{
+        padding: 0;
+      }
+}

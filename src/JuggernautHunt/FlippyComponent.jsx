@@ -1,9 +1,10 @@
 import React from 'react'
 import Flippy, { FrontSide, BackSide } from "react-flippy";
+import './flippy.css'
 import Image from "react-bootstrap/Image";
 import alive from "./game-images/jugger.png";
 
-export const Flippycomponent = ({toggleJuggKill,isDead,resize})=>{
+export const Flippycomponent = ({toggleJuggKill,isDead})=>{
 
     const handleClick = () => {
         toggleJuggKill();
@@ -12,8 +13,8 @@ export const Flippycomponent = ({toggleJuggKill,isDead,resize})=>{
     return <Flippy
     isFlipped={isDead}
     flipDirection="vertical"
-    style={{ width: '100px', height:'100px' ,margin:'0.1rem' }}
-
+    // style={{ width: '100px', height:'100px' ,margin:'0.1rem' }}
+    className='flippyComponent'
   >
     <FrontSide
       style={{
@@ -33,7 +34,7 @@ export const Flippycomponent = ({toggleJuggKill,isDead,resize})=>{
       }}
       onClick={handleClick}
     >
-      <Image src={alive} rounded className="flipImage" />
+      <Image src={alive}  className="flipImage" />
     </BackSide>
   </Flippy>
 }
