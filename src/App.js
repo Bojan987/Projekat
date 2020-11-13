@@ -34,13 +34,15 @@ function App() {
             <Profile/>
          </Route>
          <Route  path='/JuggernautHunt'>
-            <Table nrows={5} ncols={5} chanceJuggOnStart ={0.25} />
+            
+            {isLogged !==null ? <Table nrows={5} ncols={5} chanceJuggOnStart ={0.25} />: <Redirect to='/'/> }
          </Route>
          <Route  path='/Register'>
          <Register newUser={newUser} setNewUser={setNewUser}/>
          </Route>
          <Route path='/HeroHunt'>
-           <HeroHunt />
+           
+           {isLogged !==null ? <HeroHunt />: <Redirect to='/'/> }
          </Route>
        </Switch>
      </Router>
