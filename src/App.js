@@ -1,5 +1,5 @@
 import React, {  useState } from 'react';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route,Redirect} from 'react-router-dom'
 import './App.css';
 
 import {  Home } from './components/Home';
@@ -27,8 +27,8 @@ function App() {
             
          </Route>
          <Route  exact path='/user'>
-           {/* {isLogged !==null ? <Home/>: <Redirect to='/'/> } */}
-           <Home/>
+           {isLogged !==null ? <Home/>: <Redirect to='/'/> }
+           {/* <Home/> */}
          </Route>
          <Route path="/user/:username">
             <Profile/>
