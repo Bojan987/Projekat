@@ -69,13 +69,13 @@ export const Login = ({setIsLogged}) => {
           setTimeout(function(){ history.push("/user"); }, 2000);
         } else {
           setLogError("Wrong Username or Password");
-          setUserLoggingIn({ username: "", password: "" });
+          setUserLoggingIn({ username: "", password: "",score: 0 });
         }
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
 
-        setUserLoggingIn({ username: "", password: "" });
+        setUserLoggingIn({ username: "", password: "",score: 0 });
       });
     }
   };
