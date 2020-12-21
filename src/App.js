@@ -15,7 +15,7 @@ function App() {
 
   const [newUser, setNewUser] = useState({ username: "", password: "",score:0 });
   // eslint-disable-next-line 
-  const [isLogged,setIsLogged]= useState(localStorage.getItem('LoggedUser'))
+  const [isLogged,setIsLogged]= useState(JSON.parse(localStorage.getItem('LoggedUser')))
 
   return (
     <div className='App'>
