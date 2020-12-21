@@ -51,13 +51,13 @@ export const Register = ({ newUser, setNewUser }) => {
             setErrorMsg(null);
           }
           localStorage.setItem("LoggedUser", JSON.stringify(newUser));
-          setNewUser({ username: "", password: "" });
+          setNewUser({ username: "", password: "",score:0 });
           history.push("/user");
         })
         .catch((err) => {
           console.log("AXIOS ERROR: ", err);
           setErrorMsg(`Username ${newUser.username} is already taken`);
-          setNewUser({ username: "", password: "" });
+          setNewUser({ username: "", password: "",score:0 });
         });
     }
 
